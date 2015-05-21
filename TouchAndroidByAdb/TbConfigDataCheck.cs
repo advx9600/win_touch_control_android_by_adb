@@ -78,14 +78,14 @@ namespace TouchAndroidByAdb
         }
 
 
-        private volatile bool mIsFlash;        
+        private volatile bool mIsFlash;
 
         public TbConfigDataCheck(PictureBox pictureBoxMain)
         {
             var t1 = new Thread(new ParameterizedThreadStart(doAction));
             t1.IsBackground = true;
             t1.Start(pictureBoxMain);
-        }        
+        }
         private void doAction(Object picture)
         {
             mIsFlash = true;
@@ -98,16 +98,24 @@ namespace TouchAndroidByAdb
                 {
                     mIsFlash = false;
                     pic.Image = null;
-                    Command.Execute("adb shell /system/bin/screencap -p /sdcard/screenshot.png", 500);
-                    Command.Execute("adb pull /sdcard/screenshot.png  " + picName, 500);
-
-                    var img = Image.FromFile(picName);
-                    if (img.Width > img.Height && pic.Width < pic.Height || (img.Width < img.Height && pic.Width > pic.Height))
+                    String getMsg;
+                    getMsg = Command.Execute("adb shell /system/bin/screencap -p /sdcard/screenshot.png", 500);
+                    getMsg = Command.Execute("adb pull /sdcard/screenshot.png  " + picName, 500);
+                    if (File.Exists(picName))
                     {
-                        img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                        var img = Image.FromFile(picName);
+                        if (img.Width > img.Height && pic.Width < pic.Height || (img.Width < img.Height && pic.Width > pic.Height))
+                        {
+                            img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                        }
+                        pic.Image = img;
+                        File.Delete(picName);
                     }
-
-                    pic.Image = img;                    
+                    else
+                    {
+                        MessageBox.Show("adb may not connected");
+                    }
+                                        
                 }
             }
         }
