@@ -142,6 +142,14 @@ namespace TouchAndroidByAdb
                 mIsFlash = true;
             }
         }
+        private void doRightClick(String x,String y)
+        {
+            mIsFlash = true;
+        }
+        public void doAction(String x, String y)
+        {
+            doRightClick(x,y);
+        }
         public void doAction(FormStart form, string mX1, string mY1, string mX2, string mY2)
         {
             int x1 = int.Parse(mX1);

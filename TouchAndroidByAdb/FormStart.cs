@@ -49,7 +49,7 @@ namespace TouchAndroidByAdb
 
             resetSize();
 
-            mTbCheck=new  TbConfigDataCheck(pictureBoxMain);
+            mTbCheck = new TbConfigDataCheck(pictureBoxMain);
         }
 
         private string mX1;
@@ -59,7 +59,7 @@ namespace TouchAndroidByAdb
         private void pictureBoxMain_MouseDown(object sender, MouseEventArgs e)
         {
             mX1 = textBoxX.Text = e.X + "";
-            mY1 = textBoxY.Text = e.Y + "";            
+            mY1 = textBoxY.Text = e.Y + "";
             if (!pictureBoxMain.Focused)
                 pictureBoxMain.Focus();
         }
@@ -67,7 +67,14 @@ namespace TouchAndroidByAdb
         {
             mX2 = textBoxX2.Text = e.X + "";
             mY2 = textBoxY2.Text = e.Y + "";
-            mTbCheck.doAction(this, mX1, mY1, mX2, mY2);
+            if (e.Button == MouseButtons.Right)
+            {
+                mTbCheck.doAction(mX2, mY2);
+            }
+            else
+            {                
+                mTbCheck.doAction(this, mX1, mY1, mX2, mY2);
+            }
         }
 
         private void pictureBoxMain_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
