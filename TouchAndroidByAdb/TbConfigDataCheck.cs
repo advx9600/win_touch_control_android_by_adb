@@ -94,6 +94,7 @@ namespace TouchAndroidByAdb
             while (true)
             {
                 Thread.Sleep(1000);
+                bool isSaveTemp = true;
                 if (mIsFlash)
                 {
                     mIsFlash = false;
@@ -109,6 +110,7 @@ namespace TouchAndroidByAdb
                             img.RotateFlip(RotateFlipType.Rotate270FlipNone);
                         }
                         var bmp = new System.Drawing.Bitmap(img);
+                        if (isSaveTemp) { isSaveTemp = false; img.Save("temp.png"); }
                         img.Dispose();
                         pic.Image = bmp;
                         File.Delete(picName);
