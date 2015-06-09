@@ -108,14 +108,16 @@ namespace TouchAndroidByAdb
                         {
                             img.RotateFlip(RotateFlipType.Rotate270FlipNone);
                         }
-                        pic.Image = img;
+                        var bmp = new System.Drawing.Bitmap(img);
+                        img.Dispose();
+                        pic.Image = bmp;
                         File.Delete(picName);
                     }
                     else
                     {
                         MessageBox.Show("adb may not connected");
                     }
-                                        
+
                 }
             }
         }
@@ -142,13 +144,13 @@ namespace TouchAndroidByAdb
                 mIsFlash = true;
             }
         }
-        private void doRightClick(String x,String y)
+        private void doRightClick(String x, String y)
         {
             mIsFlash = true;
         }
         public void doAction(String x, String y)
         {
-            doRightClick(x,y);
+            doRightClick(x, y);
         }
         public void doAction(FormStart form, string mX1, string mY1, string mX2, string mY2)
         {
