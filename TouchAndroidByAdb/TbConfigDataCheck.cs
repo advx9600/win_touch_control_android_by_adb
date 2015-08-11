@@ -97,6 +97,7 @@ namespace TouchAndroidByAdb
                 bool isSaveTemp = true;
                 if (mIsFlash)
                 {
+                    Thread.Sleep(1000);
                     mIsFlash = false;
                     pic.Image = null;
                     String getMsg;
