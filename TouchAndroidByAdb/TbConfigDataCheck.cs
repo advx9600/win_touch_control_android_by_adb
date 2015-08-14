@@ -137,6 +137,9 @@ namespace TouchAndroidByAdb
                     break;
                 case Keys.F5:
                     break;
+                case Keys.Space:
+                    cmd.RunCmd("adb shell input keyevent 26");                    
+                    break;
                 default:
                     isFound = false;
                     break;

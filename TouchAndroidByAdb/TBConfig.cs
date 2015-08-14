@@ -13,6 +13,7 @@ namespace TouchAndroidByAdb
         public const String SEG_WIDTH = "width";
         public const String SEG_HEIGHT = "height";
         public const String SEG_SCALE = "scale";
+        public const String SEG_PRE_SAVE_DIR = "pre_save_dir";
         public static List<Data> getInitList()
         {
             List<Data> list = new List<Data>();
@@ -20,6 +21,7 @@ namespace TouchAndroidByAdb
             list.Add(new Data(SEG_WIDTH, "1024"));
             list.Add(new Data(SEG_HEIGHT, "600"));
             list.Add(new Data(SEG_SCALE, "1"));
+            list.Add(new Data(SEG_PRE_SAVE_DIR, ""));
             return list;
         }
         public class Data
@@ -77,6 +79,14 @@ namespace TouchAndroidByAdb
         public static void setScale(String val)
         {
             setFiled(SEG_SCALE, val);
-        }        
+        }
+        public static void setPreSaveDir(String val)
+        {
+            setFiled(SEG_PRE_SAVE_DIR, val);
+        }
+        public static String getPreSaveDir()
+        {
+            return getFiled(SEG_PRE_SAVE_DIR);
+        }
     }
 }

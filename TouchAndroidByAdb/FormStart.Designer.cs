@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStart));
             this.buttonOK = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxHeight = new System.Windows.Forms.TextBox();
@@ -43,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxX2 = new System.Windows.Forms.TextBox();
             this.textBoxY2 = new System.Windows.Forms.TextBox();
+            this.btn_save_pic = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -136,6 +138,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_save_pic);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBoxX2);
@@ -188,6 +191,16 @@
             this.textBoxY2.Size = new System.Drawing.Size(40, 21);
             this.textBoxY2.TabIndex = 10;
             // 
+            // btn_save_pic
+            // 
+            this.btn_save_pic.Location = new System.Drawing.Point(400, 33);
+            this.btn_save_pic.Name = "btn_save_pic";
+            this.btn_save_pic.Size = new System.Drawing.Size(75, 23);
+            this.btn_save_pic.TabIndex = 14;
+            this.btn_save_pic.Text = "save pic";
+            this.btn_save_pic.UseVisualStyleBackColor = true;
+            this.btn_save_pic.Click += new System.EventHandler(this.btn_save_pic_Click);
+            // 
             // FormStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -195,6 +208,7 @@
             this.ClientSize = new System.Drawing.Size(572, 363);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBoxMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormStart";
             this.Text = "FormStart";
             this.Load += new System.EventHandler(this.FormStart_Load);
@@ -222,6 +236,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxX2;
         private System.Windows.Forms.TextBox textBoxY2;
+        private System.Windows.Forms.Button btn_save_pic;
     }
 }
 
